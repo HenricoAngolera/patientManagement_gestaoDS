@@ -10,6 +10,13 @@ export default createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
     color: ${({ theme }) => theme.COLORS.LETTER};
+    -webkit-font-smoothing: antialiased; /* deixar as fontes mais suaves */
+  }
+
+  body, input, button, textarea {
+    font-family: ${({ theme }) => theme.FONTS.SOURCE_SANS};
+    font-size: 16px;
+    outline: none;
   }
 
   a { 
