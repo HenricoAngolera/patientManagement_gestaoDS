@@ -7,6 +7,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :root {
+    font-size: 62.5%;
+  }
+
   body {
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
     color: ${({ theme }) => theme.COLORS.LETTER};
@@ -15,7 +19,7 @@ export default createGlobalStyle`
 
   body, input, button, textarea {
     font-family: ${({ theme }) => theme.FONTS.SOURCE_SANS};
-    font-size: 16px;
+    font-size: 1.6rem;
     outline: none;
   }
 
