@@ -3,6 +3,7 @@ export default {
     BACKGROUND: "#F6F6F6",
     BACKGROUND2: "#FFFFFF",
 
+    INPUT_BORDER: "#E8E8E8",
     LETTER: "#000000",
     PLACEHOLDER: "#C0C0C0",
     TABLE_TITLE: "#4B4B4B",
