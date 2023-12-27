@@ -7,9 +7,10 @@ export const Container = styled.button`
   
   width: 100%;
   padding-block: 0.55rem;
-  border: ${({ theme, btnBorder }) => btnBorder ? `1px ${theme.COLORS.BLUE} solid` : "none"};
+  border: ${({ theme, $btnBorder }) => $btnBorder ? `1px ${theme.COLORS.BLUE} solid` : "none"};
+  border-radius: .4rem;
 
   font-size: 1.4rem;
-  color: ${({ btnColor }) => btnColor};
-  background-color: ${({ btnBgColor }) => btnBgColor};
+  color: ${({ $btnColor }) => $btnColor};
+  background-color: ${({ $btnBgColor }) => $btnBgColor};
 `
