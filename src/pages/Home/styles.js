@@ -35,6 +35,8 @@ export const Container = styled.div`
     width: 100%;
     text-align: left;    
     font-size: 1.4rem;
+
+    margin-bottom: 5rem;
   }
 
   table tr {

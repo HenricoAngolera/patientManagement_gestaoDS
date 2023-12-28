@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { HiMiniArrowsUpDown } from 'react-icons/hi2'
-import { FaEllipsisH } from 'react-icons/fa'
 
 import gestaoDsLogo from '../../assets/ds vertical secundaria 1.png'
 import { Button } from '../../components/Button'
@@ -9,14 +8,39 @@ import { Options } from '../../components/Options'
 import { Container } from './styles'
 
 export function Home() {
-  const [showOptions, setShowOptions] = useState(false)
-  function verifyOptions() {
-    if (showOptions === false) {
-      setShowOptions(true)
-    } else {
-      setShowOptions(false)
+  const [activeOption, setActiveOption] = useState(null)
+
+  const patients = [
+    {
+      id: crypto.randomUUID(),
+      name: 'fulano',
+      cpf: '9999999',
+      birthday: '99/99/9999',
+      email: 'teste@gestaods.com.br',
+      city: 'Santana do não'
+    },
+    {
+      id: crypto.randomUUID(),
+      name: 'fulano',
+      cpf: '9999999',
+      birthday: '99/99/9999',
+      email: 'teste@gestaods.com.br',
+      city: 'Santana do não'
+    },
+    {
+      id: crypto.randomUUID(),
+      name: 'fulano',
+      cpf: '9999999',
+      birthday: '99/99/9999',
+      email: 'teste@gestaods.com.br',
+      city: 'Santana do não'
     }
+  ]
+
+  function handleClick(id) {
+    setActiveOption(() => (activeOption === id ? null : id))
   }
+
   return (
     <Container>
       <div className="logo">
@@ -80,39 +104,21 @@ export function Home() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="blue">fulano</td>
-                <td>9999999</td>
-                <td>99/99/9999</td>
-                <td>teste@gestaods.com.br</td>
-                <td>Santana do não</td>
-                <td>
-                  <a onClick={verifyOptions}>
-                    <FaEllipsisH />
-                  </a>
-                  {showOptions && <Options />}
-                </td>
-              </tr>
-              <tr>
-                <td className="blue">fulano</td>
-                <td>9999999</td>
-                <td>99/99/9999</td>
-                <td>teste@gestaods.com.br</td>
-                <td>Santana do não</td>
-                <td>
-                  <a>...</a>
-                </td>
-              </tr>
-              <tr>
-                <td className="blue">fulano</td>
-                <td>9999999</td>
-                <td>99/99/9999</td>
-                <td>teste@gestaods.com.br</td>
-                <td>Santana do não</td>
-                <td>
-                  <a>...</a>
-                </td>
-              </tr>
+              {patients.map((patient, index) => (
+                <tr key={patient.id}>
+                  <td className="blue">{patient.name}</td>
+                  <td>{patient.cpf}</td>
+                  <td>{patient.birthday}</td>
+                  <td>{patient.email}</td>
+                  <td>{patient.city}</td>
+                  <td>
+                    <Options
+                      onClickItem={() => handleClick(index)}
+                      isActiveOption={index === activeOption}
+                    />
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
