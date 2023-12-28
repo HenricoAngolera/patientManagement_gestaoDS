@@ -1,3 +1,5 @@
+import { HiMiniArrowsUpDown } from 'react-icons/hi2'
+
 import gestaoDsLogo from '../../assets/ds vertical secundaria 1.png'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
@@ -28,20 +30,66 @@ export function Home() {
           <table>
             <thead>
               <tr>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Data de nascimento</th>
-                <th>E-mail</th>
-                <th>Cidade</th>
-                <th>Ações</th>
+                <th>
+                  Nome{' '}
+                  <a className="blue">
+                    <HiMiniArrowsUpDown />
+                  </a>
+                </th>
+                <th>
+                  CPF{' '}
+                  <a className="blue">
+                    <HiMiniArrowsUpDown />
+                  </a>
+                </th>
+                <th>
+                  Data de nascimento{' '}
+                  <a className="blue">
+                    <HiMiniArrowsUpDown />
+                  </a>
+                </th>
+                <th>
+                  E-mail{' '}
+                  <a className="blue">
+                    <HiMiniArrowsUpDown />
+                  </a>
+                </th>
+                <th>
+                  Cidade{' '}
+                  <a className="blue">
+                    <HiMiniArrowsUpDown />
+                  </a>
+                </th>
+                <th>
+                  Ações{' '}
+                  <a className="blue">
+                    <HiMiniArrowsUpDown />
+                  </a>
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>fulano</td>
+                <td className="blue">fulano</td>
                 <td>9999999</td>
                 <td>99/99/9999</td>
-                <td>exemplo@exemplo.com</td>
+                <td>teste@gestaods.com.br</td>
+                <td>Santana do não</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td className="blue">fulano</td>
+                <td>9999999</td>
+                <td>99/99/9999</td>
+                <td>teste@gestaods.com.br</td>
+                <td>Santana do não</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td className="blue">fulano</td>
+                <td>9999999</td>
+                <td>99/99/9999</td>
+                <td>teste@gestaods.com.br</td>
                 <td>Santana do não</td>
                 <td>...</td>
               </tr>

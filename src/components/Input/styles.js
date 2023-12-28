@@ -12,6 +12,8 @@ export const Container = styled.div`
 
     border: 1px solid ${({ theme }) => theme.COLORS.INPUT_BORDER};
     font-size: 1.4rem;
+
+    width: 100%;
   
     input {
       border: none;
@@ -25,6 +27,6 @@ export const Container = styled.div`
   }
 
   > input::placeholder {
-    color: ${({ theme, $searchColor }) => $searchColor ? theme.COLORS.GRAY : theme.COLORS.PLACEHOLDER};
+    color: ${({ theme, $searchcolor }) => $searchcolor ? theme.COLORS.GRAY : theme.COLORS.PLACEHOLDER};
   }
 `;
