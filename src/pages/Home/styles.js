@@ -52,12 +52,21 @@ export const Container = styled.div`
   }
 
   tbody tr >:last-child{
+    position: relative;
+    
     font-weight: bold;
     font-size: 1.5rem;
+
+    display: flex;
+    gap: 1.5rem;
   }
 
   th, td {
     padding-block: .8rem;
+  }
+
+  td a:hover {
+    color: ${({ theme }) => theme.COLORS.BLUE};
   }
 
   .blue {
