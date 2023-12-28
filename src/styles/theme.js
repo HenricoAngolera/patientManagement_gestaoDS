@@ -2,6 +2,7 @@ export default {
   COLORS: {
     BACKGROUND: "#F6F6F6",
     BACKGROUND2: "#FFFFFF",
+    BACKGROUND3: "#FCFCFC",
 
     INPUT_BORDER: "#E8E8E8",
     LETTER: "#000000",
