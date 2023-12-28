@@ -1,11 +1,22 @@
+import { useState } from 'react'
 import { HiMiniArrowsUpDown } from 'react-icons/hi2'
+import { FaEllipsisH } from 'react-icons/fa'
 
 import gestaoDsLogo from '../../assets/ds vertical secundaria 1.png'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
+import { Options } from '../../components/Options'
 import { Container } from './styles'
 
 export function Home() {
+  const [showOptions, setShowOptions] = useState(false)
+  function verifyOptions() {
+    if (showOptions === false) {
+      setShowOptions(true)
+    } else {
+      setShowOptions(false)
+    }
+  }
   return (
     <Container>
       <div className="logo">
@@ -75,7 +86,12 @@ export function Home() {
                 <td>99/99/9999</td>
                 <td>teste@gestaods.com.br</td>
                 <td>Santana do não</td>
-                <td>...</td>
+                <td>
+                  <a onClick={verifyOptions}>
+                    <FaEllipsisH />
+                  </a>
+                  {showOptions && <Options />}
+                </td>
               </tr>
               <tr>
                 <td className="blue">fulano</td>
@@ -83,7 +99,9 @@ export function Home() {
                 <td>99/99/9999</td>
                 <td>teste@gestaods.com.br</td>
                 <td>Santana do não</td>
-                <td>...</td>
+                <td>
+                  <a>...</a>
+                </td>
               </tr>
               <tr>
                 <td className="blue">fulano</td>
@@ -91,7 +109,9 @@ export function Home() {
                 <td>99/99/9999</td>
                 <td>teste@gestaods.com.br</td>
                 <td>Santana do não</td>
-                <td>...</td>
+                <td>
+                  <a>...</a>
+                </td>
               </tr>
             </tbody>
           </table>
