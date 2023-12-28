@@ -1,10 +1,19 @@
-import { Container } from './styles'
+import { FaEllipsisH } from 'react-icons/fa'
 
-export function Options({ patientId }) {
+import { Container, Select } from './styles'
+
+export function Options({ isActiveOption, onClickItem }) {
   return (
     <Container>
-      <a className="editar">Editar</a>
-      <a className="excluir">Excluir</a>
+      <a onClick={onClickItem}>
+        <FaEllipsisH />
+      </a>
+      {isActiveOption && (
+        <Select>
+          <a className="editar">Editar</a>
+          <a className="excluir">Excluir</a>
+        </Select>
+      )}
     </Container>
   )
 }
