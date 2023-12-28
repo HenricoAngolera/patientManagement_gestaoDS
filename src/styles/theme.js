@@ -9,6 +9,7 @@ export default {
     PLACEHOLDER: "#C0C0C0",
     TABLE_TITLE: "#4B4B4B",
     TABLE_CONTENT: "#474747",
+    OPTION_SELECTED: "#EDF3FC",
 
     BLUE: "#136CDC",
     
