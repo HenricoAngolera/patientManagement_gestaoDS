@@ -1,6 +1,7 @@
 import { styled } from "styled-components"
 
 export const Container = styled.div`
+  border-radius: .5rem;
   > a {
     position: relative;
       
@@ -22,6 +23,7 @@ export const Select = styled.div`
   top: 1rem;
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND2};
+  border-radius: .5rem;
 
   display: flex;
   flex-direction: column;
