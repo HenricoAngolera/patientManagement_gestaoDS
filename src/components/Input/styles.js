@@ -2,10 +2,18 @@ import { styled } from "styled-components"
 
 export const Container = styled.div`
 
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+
+  label {
+    color: ${({ theme }) => theme.COLORS.GRAY};
+  }
+
   > .input-box {
     display: flex;
     align-items: center;
-    justify-content: center;
+    ${({ $textPosition }) => $textPosition ? 'justify-content: center;' : ''}
     gap: 0.5rem;
 
     padding: 1rem 1.5rem;
@@ -18,6 +26,7 @@ export const Container = styled.div`
     input {
       border: none;
       background: none;
+      width: max-content;
     }
 
     svg {
