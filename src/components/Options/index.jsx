@@ -2,10 +2,13 @@ import { useState } from 'react'
 import { FaEllipsisH } from 'react-icons/fa'
 
 import { DeleteModal } from '../DeleteModal'
+import { InfoModal } from '../InfoModal'
+
 import { Container, Select } from './styles'
 
 export function Options({ isActiveOption, onClickItem }) {
   const [modalDelete, setModalDelete] = useState(false)
+  const [modalInfo, setModalInfo] = useState(false)
   return (
     <Container>
       <a onClick={onClickItem}>
@@ -13,7 +16,15 @@ export function Options({ isActiveOption, onClickItem }) {
       </a>
       {isActiveOption && (
         <Select>
-          <a className="editar">Editar</a>
+          <a
+            className="editar"
+            onClick={() => {
+              setModalInfo(true)
+            }}
+          >
+            Editar
+          </a>
+          <InfoModal isOpen={modalInfo} />
           <a
             className="excluir"
             onClick={() => {
