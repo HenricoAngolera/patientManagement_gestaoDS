@@ -53,7 +53,7 @@ export function Home() {
         <div className="menuBar">
           <h2>Listagem de pacientes</h2>
           <div className="actions">
-            <Input type="text" placeholder="Digite" searchColor icon />
+            <Input type="text" placeholder="Digite" searchColor icon textPosition />
             <Button
               title="Adicionar paciente"
               btnBgColor={({ theme }) => theme.COLORS.BLUE}

@@ -7,12 +7,13 @@ export function Input({
   labelTitle,
   searchColor = false,
   icon,
+  textPosition,
   ...rest
 }) {
   return (
     <Container>
-      {label && <label htmlFor={labelTitle}>{labelTitle}</label>}
-      <div className="input-box">
+      {label && <label htmlFor={labelTitle}>{labelTitle}:</label>}
+      <div className="input-box" $textPosition={textPosition}>
         {icon && <IoIosSearch />}
         <input id={labelTitle} $searchcolor={searchColor} {...rest} />
       </div>
