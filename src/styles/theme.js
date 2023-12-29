@@ -13,6 +13,8 @@ export default {
 
     BLUE: "#136CDC",
     
+    RED: "#C52525",
+
     PURPLE: "#4F1368",
     PURPLE_ALERT: "#510972",
     
