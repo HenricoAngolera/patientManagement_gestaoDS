@@ -10,6 +10,7 @@ export default {
     TABLE_TITLE: "#4B4B4B",
     TABLE_CONTENT: "#474747",
     OPTION_SELECTED: "#EDF3FC",
+    BORDER_MENU: "#EBEEF1",
 
     BLUE: "#136CDC",
     
