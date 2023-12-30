@@ -22,8 +22,6 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND2};
     border-radius: 0.5rem;
 
-    display: flex;
-    flex-direction: column;
   }
 
   .header-modal {
@@ -37,12 +35,18 @@ export const Container = styled.div`
     display: flex;
     gap: 2rem;
 
-
     font-size: 1.6rem;
   }
 
-  .header-modal .nav > :first-child {
-    z-index: 1002;
+  /* .header-modal .nav > :first-child {
+    color: ${({ theme }) => theme.COLORS.PURPLE};
+
+    padding-bottom: 1.8rem;
+    
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.PURPLE};
+  } */
+
+  .active {
     color: ${({ theme }) => theme.COLORS.PURPLE};
 
     padding-bottom: 1.8rem;
@@ -55,7 +59,7 @@ export const Container = styled.div`
   }
 
   .content-modal {
-    flex: 1;
+    height: 75vh;
     overflow: auto;
 
     margin-bottom: 5rem;
@@ -102,5 +106,16 @@ export const Container = styled.div`
 
     display: flex;
     justify-content: flex-end;
+  }
+
+  .contact-modal {
+    overflow: auto;
+  }
+
+  .contact-modal .input-wrapper{
+    margin-top: 2.7rem;
+
+    height: 78vh;
+    overflow: auto;
   }
 `
