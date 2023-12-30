@@ -26,14 +26,71 @@ export const Container = styled.div`
     flex-direction: column;
   }
 
+  .header-modal {
+    display: flex;
+    gap: 2rem;
+
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.BORDER_MENU};
+
+    font-size: 1.6rem;
+  }
+
+  .header-modal > :first-child {
+    z-index: 1002;
+    color: ${({ theme }) => theme.COLORS.PURPLE};
+
+    padding-bottom: 1.8rem;
+    
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.PURPLE};
+  }
+
   .content-modal {
     flex: 1;
     overflow: auto;
+
+    margin-bottom: 5rem;
+  }
+
+  .content-modal img {
+    margin-top: 2.7rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .content-modal .textarea-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-modal .textarea-box textarea {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem 1.5rem;
+
+    border: 1px solid ${({ theme }) => theme.COLORS.INPUT_BORDER};
+    font-size: 1.4rem;
+
+    width: 100%;
+    height: 5.3rem;
+
+    resize: none;
+  }
+
+  .content-modal .textarea-box label {
+    color: ${({ theme }) => theme.COLORS.GRAY};
   }
 
   .input-wrapper {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
+  }
+
+  .button-modal {
+    width: 18.9rem;
+    margin-left: auto;
+
+    display: flex;
+    justify-content: flex-end;
   }
 `

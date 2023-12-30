@@ -26,7 +26,7 @@ export const Container = styled.div`
     input {
       border: none;
       background: none;
-      width: max-content;
+      width: 100%;
     }
 
     svg {

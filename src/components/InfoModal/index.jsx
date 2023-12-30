@@ -36,10 +36,14 @@ export function InfoModal({ isOpen, toggleModal }) {
                 labelTitle="Nacionalidade"
                 placeholder="Digite"
               />
-              <Input type="data" label labelTitle="Nascimento" />
-              <Input type="number" label labelTitle="CPF" />
-              <Input type="number" label labelTitle="RG" />
-              <Input label labelTitle="Apelido" placeholder="Digite" />
+              <Input type="date" label labelTitle="Nascimento" />
+              <Input
+                type="number"
+                label
+                labelTitle="CPF"
+                placeholder="Digite"
+              />
+              <Input type="number" label labelTitle="RG" placeholder="Digite" />
               <Select label labelTitle="Genero">
                 <option value="">Sem Filtro</option>
                 <option value="">Masculino</option>
@@ -57,7 +61,7 @@ export function InfoModal({ isOpen, toggleModal }) {
             </div>
             <div className="textarea-box">
               <label htmlFor="obs">Observações Adicionais</label>
-              <textarea id="obs"></textarea>
+              <textarea id="obs" resize="false"></textarea>
             </div>
           </div>
           <div className="button-modal">
