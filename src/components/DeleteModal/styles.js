@@ -74,4 +74,19 @@ export const Container = styled.div`
       margin-left: 5rem;
     }
   }
+
+  @media (min-width: 1024px) {
+    > div {
+      width: 51.7rem;
+    }
+
+    .content.modal {
+      font-size: 1.6rem;
+    }
+
+    .buttons-modal {
+      margin-left: auto;
+      width: 22.6rem;
+    }
+  }
 `;
