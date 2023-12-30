@@ -5,41 +5,19 @@ import gestaoDsLogo from '../../assets/ds vertical secundaria 1.png'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { Options } from '../../components/Options'
+
+import { usePatients } from '../../data/PatientsData'
+
 import { Container } from './styles'
 
 export function Home() {
   const [activeOption, setActiveOption] = useState(null)
 
-  const patients = [
-    {
-      id: crypto.randomUUID(),
-      name: 'fulano',
-      cpf: '9999999',
-      birthday: '99/99/9999',
-      email: 'teste@gestaods.com.br',
-      city: 'Santana do não'
-    },
-    {
-      id: crypto.randomUUID(),
-      name: 'fulano',
-      cpf: '9999999',
-      birthday: '99/99/9999',
-      email: 'teste@gestaods.com.br',
-      city: 'Santana do não'
-    },
-    {
-      id: crypto.randomUUID(),
-      name: 'fulano',
-      cpf: '9999999',
-      birthday: '99/99/9999',
-      email: 'teste@gestaods.com.br',
-      city: 'Santana do não'
-    }
-  ]
-
   function handleClick(id) {
     setActiveOption(() => (activeOption === id ? null : id))
   }
+
+  const patients = usePatients()
 
   return (
     <Container>
@@ -53,7 +31,13 @@ export function Home() {
         <div className="menuBar">
           <h2>Listagem de pacientes</h2>
           <div className="actions">
-            <Input type="text" placeholder="Digite" searchColor icon textPosition />
+            <Input
+              type="text"
+              placeholder="Digite"
+              searchColor
+              icon
+              textPosition
+            />
             <Button
               title="Adicionar paciente"
               btnBgColor={({ theme }) => theme.COLORS.BLUE}
