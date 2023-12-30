@@ -1,3 +1,5 @@
+import { IoMdClose } from 'react-icons/io'
+
 import userImg from '../../assets/img_placeh.png'
 
 import { Input } from '../Input'
@@ -12,8 +14,11 @@ export function InfoModal({ isOpen, toggleModal }) {
       <Container>
         <div>
           <div className="header-modal">
-            <a>Informações básicas</a>
-            <a>Contato</a>
+            <div className="nav">
+              <a>Informações básicas</a>
+              <a>Contato</a>
+            </div>
+            <IoMdClose onClick={toggleModal}/>
           </div>
           <div className="content-modal">
             <img src={userImg} alt="Imagem genérica avatar de usuário." />

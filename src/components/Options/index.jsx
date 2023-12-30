@@ -24,7 +24,10 @@ export function Options({ isActiveOption, onClickItem }) {
           >
             Editar
           </a>
-          <InfoModal isOpen={modalInfo} />
+          <InfoModal
+            isOpen={modalInfo}
+            toggleModal={() => setModalInfo(!modalInfo)}
+          />
           <a
             className="excluir"
             onClick={() => {
