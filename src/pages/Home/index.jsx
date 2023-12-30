@@ -31,18 +31,22 @@ export function Home() {
         <div className="menuBar">
           <h2>Listagem de pacientes</h2>
           <div className="actions">
-            <Input
-              type="text"
-              placeholder="Digite"
-              searchColor
-              icon
-              textPosition
-            />
-            <Button
-              title="Adicionar paciente"
-              btnBgColor={({ theme }) => theme.COLORS.BLUE}
-              btnColor={({ theme }) => theme.COLORS.BACKGROUND2}
-            />
+            <div className="inputW">
+              <Input
+                type="text"
+                placeholder="Pesquisar"
+                searchColor
+                icon
+                textPosition
+              />
+            </div>
+            <div className="buttonW">
+              <Button
+                title="Adicionar paciente"
+                btnBgColor={({ theme }) => theme.COLORS.BLUE}
+                btnColor={({ theme }) => theme.COLORS.BACKGROUND2}
+              />
+            </div>
           </div>
         </div>
         <div className="table-container">
