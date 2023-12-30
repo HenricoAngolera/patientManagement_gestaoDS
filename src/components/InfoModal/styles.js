@@ -38,14 +38,6 @@ export const Container = styled.div`
     font-size: 1.6rem;
   }
 
-  /* .header-modal .nav > :first-child {
-    color: ${({ theme }) => theme.COLORS.PURPLE};
-
-    padding-bottom: 1.8rem;
-    
-    border-bottom: 1px solid ${({ theme }) => theme.COLORS.PURPLE};
-  } */
-
   .active {
     color: ${({ theme }) => theme.COLORS.PURPLE};
 
@@ -108,14 +100,38 @@ export const Container = styled.div`
     justify-content: flex-end;
   }
 
-  .contact-modal {
-    overflow: auto;
-  }
-
   .contact-modal .input-wrapper{
     margin-top: 2.7rem;
 
     height: 78vh;
     overflow: auto;
+  }
+
+  @media (min-width: 1024px) {
+    > div {
+      width: 79.2rem;
+    }
+
+    .input-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .content-modal {
+      height: 45rem;
+    }
+
+    .content-modal .textarea-box textarea {
+      height: 7.1rem;
+    } 
+
+    .contact-modal .input-wrapper{  
+      height: 25rem;
+    }
+
+    .contact-modal .button-modal {
+      margin-top: 22rem;
+    }
+
   }
 `
