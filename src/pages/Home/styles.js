@@ -41,7 +41,7 @@ export const Container = styled.div`
 
   table tr {
     display: grid;
-    grid-template-columns: repeat(6, 14.8rem);
+    grid-template-columns: repeat(6, 15rem);
     gap: 1.6rem;
   }
 
@@ -65,6 +65,8 @@ export const Container = styled.div`
 
   th, td {
     padding-block: .8rem;
+
+    border-block: 0.5px solid ${({ theme }) => theme.COLORS.INPUT_BORDER};
   }
 
   td a:hover {
@@ -73,6 +75,58 @@ export const Container = styled.div`
 
   .blue {
     color: ${({ theme }) => theme.COLORS.BLUE};
+  }
+
+  /* =========== DESKTOP ================== */
+
+  @media (min-width: 1024px) {
+    width: 100rem;
+
+    .menuBar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding-inline: 6rem;
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .actions {
+        
+      }
+
+      .inputW {
+        width: 15rem;
+      }
+
+      .buttonW {
+        width: 14rem;
+      }
+    }
+
+    .table-container {
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 37rem;
+    }
+
+    table {
+      margin: auto;
+      padding: 1.7rem 1.6rem;
+      width: 98.2rem;
+      font-size: 1.4rem;
+    }
+
+    th, td {
+      padding-left: 1.6rem;
+      padding-top: 1.7rem;
+    }
+
+    th a svg {
+      font-size: 1.2rem;
+    }
   }
 
 `;
