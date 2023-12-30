@@ -28,20 +28,30 @@ export const Container = styled.div`
 
   .header-modal {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
 
     border-bottom: 1px solid ${({ theme }) => theme.COLORS.BORDER_MENU};
+  }
+
+  .header-modal .nav {
+    display: flex;
+    gap: 2rem;
+
 
     font-size: 1.6rem;
   }
 
-  .header-modal > :first-child {
+  .header-modal .nav > :first-child {
     z-index: 1002;
     color: ${({ theme }) => theme.COLORS.PURPLE};
 
     padding-bottom: 1.8rem;
     
     border-bottom: 1px solid ${({ theme }) => theme.COLORS.PURPLE};
+  }
+
+  .header-modal svg {
+    cursor: pointer;
   }
 
   .content-modal {
