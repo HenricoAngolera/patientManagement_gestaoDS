@@ -28,6 +28,8 @@ export const Container = styled.div`
 
   .table-container {
     overflow-x: auto;
+    overflow-y: auto;
+    height: 50dvh;
   }
   
   table {
