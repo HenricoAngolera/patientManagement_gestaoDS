@@ -53,7 +53,7 @@ Então, rodar o seguinte comando para iniciar o projeto:
     npm run dev
 ```
 
-Após isso, acesse em seu navegador o endereço que aparecer no terminal. Provavelmente vai ser [http://http://localhost:5173/](http://http://localhost:5173/)
+Após isso, acesse em seu navegador o endereço que aparecer no terminal. Provavelmente vai ser [http://localhost:5173/](http://http://localhost:5173/)
 
 ## Feedback
 
