@@ -21,9 +21,14 @@ export function addPatient(patient) {
 export function removePatient(patientId) {
   let patientsInList = patients.filter(patient => patient.id != patientId)
 
-  console.log(patientId)
-
   patients = patientsInList
+}
+
+export function findPatient(patientId) {
+  let patientFound = patients.filter(patient => patient.id == patientId)
+
+  return patientFound[0]
+  console.log(patientFound[0])
 }
 
 export function usePatients() {
