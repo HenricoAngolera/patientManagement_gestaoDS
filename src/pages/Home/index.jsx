@@ -5,6 +5,7 @@ import gestaoDsLogo from '../../assets/ds vertical secundaria 1.png'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
 import { Options } from '../../components/Options'
+import { InfoModal } from '../../components/InfoModal'
 
 import { usePatients } from '../../data/PatientsData'
 
@@ -12,6 +13,7 @@ import { Container } from './styles'
 
 export function Home() {
   const [activeOption, setActiveOption] = useState(null)
+  const [modalInfo, setModalInfo] = useState(false)
 
   function handleClick(id) {
     setActiveOption(() => (activeOption === id ? null : id))
@@ -45,8 +47,15 @@ export function Home() {
                 title="Adicionar paciente"
                 btnBgColor={({ theme }) => theme.COLORS.BLUE}
                 btnColor={({ theme }) => theme.COLORS.BACKGROUND2}
+                onClick={() => {
+                  setModalInfo(true)
+                }}
               />
             </div>
+            <InfoModal
+              isOpen={modalInfo}
+              toggleModal={() => setModalInfo(!modalInfo)}
+            />
           </div>
         </div>
         <div className="table-container">
@@ -96,7 +105,7 @@ export function Home() {
                 <tr key={patient.id}>
                   <td className="blue">{patient.name}</td>
                   <td>{patient.cpf}</td>
-                  <td>{patient.birthday}</td>
+                  <td>{patient.birthDay}</td>
                   <td>{patient.email}</td>
                   <td>{patient.city}</td>
                   <td>
