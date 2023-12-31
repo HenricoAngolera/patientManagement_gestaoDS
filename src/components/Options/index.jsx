@@ -44,6 +44,7 @@ export function Options({
             isOpen={modalInfo}
             toggleModal={() => setModalInfo(!modalInfo)}
             patientEdit={patientEdit}
+            patientId={patientId}
           />
           <a
             className="excluir"
