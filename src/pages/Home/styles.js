@@ -23,6 +23,8 @@ export const Container = styled.div`
       align-items: center;
       justify-content: center;
       gap: 1rem;
+
+      text-align: left;
     }
   }
 
@@ -93,10 +95,6 @@ export const Container = styled.div`
 
       h2 {
         font-size: 1.4rem;
-      }
-
-      .actions {
-        
       }
 
       .inputW {
