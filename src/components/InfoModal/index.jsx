@@ -191,10 +191,10 @@ export function InfoModal({ isOpen, toggleModal }) {
                     labelTitle="Genero"
                   >
                     <option value="">Sem Filtro</option>
-                    <option value="">Masculino</option>
-                    <option value="">Feminino</option>
-                    <option value="">Não binário</option>
-                    <option value="">Prefiro não informar</option>
+                    <option value="mas">Masculino</option>
+                    <option value="fem">Feminino</option>
+                    <option value="not-b">Não binário</option>
+                    <option value="no">Prefiro não informar</option>
                   </Select>
                   <Select
                     onChange={e => setMaritalStatus(e.target.value)}
@@ -202,10 +202,10 @@ export function InfoModal({ isOpen, toggleModal }) {
                     labelTitle="Estado Civil"
                   >
                     <option value="">Sem Filtro</option>
-                    <option value="">Solteiro(a)</option>
-                    <option value="">Relação estável</option>
-                    <option value="">Casado(a)</option>
-                    <option value="">Viúvo(a)</option>
+                    <option value="sin">Solteiro(a)</option>
+                    <option value="rel">Relação estável</option>
+                    <option value="mar">Casado(a)</option>
+                    <option value="wid">Viúvo(a)</option>
                   </Select>
                 </div>
                 <div className="textarea-box">
