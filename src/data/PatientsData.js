@@ -28,7 +28,17 @@ export function findPatient(patientId) {
   let patientFound = patients.filter(patient => patient.id == patientId)
 
   return patientFound[0]
-  console.log(patientFound[0])
+}
+
+export function editPatient(updatePatient, patientId) {
+  patients = patients.map(patient => {
+    if (patient.id === patientId) {
+      return { ...patient, ...updatePatient }
+      console.log({ ...patient, ...updatePatient })
+    } else {
+      return patient
+    }
+  })
 }
 
 export function usePatients() {

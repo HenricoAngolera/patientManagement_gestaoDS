@@ -7,12 +7,17 @@ import { Input } from '../Input'
 import { Button } from '../Button'
 import { Select } from '../Select'
 
-import { addPatient, findPatient } from '../../data/PatientsData'
+import { addPatient, editPatient } from '../../data/PatientsData'
 
 import { Container } from './styles'
 
-export function InfoModal({ isOpen, toggleModal, patientEdit }) {
-  console.log(patientEdit)
+export function InfoModal({
+  isOpen,
+  toggleModal,
+  closeOptions,
+  patientEdit,
+  patientId
+}) {
   const [showContact, setShowContact] = useState(false)
 
   const [name, setName] = useState(patientEdit ? patientEdit.name : '')
@@ -66,6 +71,11 @@ export function InfoModal({ isOpen, toggleModal, patientEdit }) {
 
   function savePatient() {
     addPatient(patient)
+    toggleModal()
+  }
+
+  function updatePatient() {
+    editPatient(patient, patientId)
     toggleModal()
   }
 
@@ -159,7 +169,10 @@ export function InfoModal({ isOpen, toggleModal, patientEdit }) {
                   title="Salvar"
                   btnColor={({ theme }) => theme.COLORS.BACKGROUND2}
                   btnBgColor={({ theme }) => theme.COLORS.BLUE}
-                  onClick={() => savePatient()}
+                  onClick={() => {
+                    patientEdit ? updatePatient() : savePatient()
+                    closeOptions(null)
+                  }}
                 />
               </div>
             </div>
