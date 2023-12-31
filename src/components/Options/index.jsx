@@ -4,6 +4,8 @@ import { FaEllipsisH } from 'react-icons/fa'
 import { DeleteModal } from '../DeleteModal'
 import { InfoModal } from '../InfoModal'
 
+import { findPatient } from '../../data/PatientsData.js'
+
 import { Container, Select } from './styles'
 
 export function Options({
@@ -14,6 +16,14 @@ export function Options({
 }) {
   const [modalDelete, setModalDelete] = useState(false)
   const [modalInfo, setModalInfo] = useState(false)
+
+  const [patientEdit, setPatientEdit] = useState({})
+
+  function setPatientToEdit(id) {
+    setModalInfo(true)
+    setPatientEdit(findPatient(id))
+  }
+
   return (
     <Container>
       <a onClick={onClickItem}>
@@ -24,7 +34,7 @@ export function Options({
           <a
             className="editar"
             onClick={() => {
-              setModalInfo(true)
+              setPatientToEdit(patientId)
             }}
           >
             Editar
@@ -33,6 +43,7 @@ export function Options({
             closeOptions={onCloseOptions}
             isOpen={modalInfo}
             toggleModal={() => setModalInfo(!modalInfo)}
+            patientEdit={patientEdit}
           />
           <a
             className="excluir"
