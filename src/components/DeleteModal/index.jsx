@@ -3,9 +3,16 @@ import { IoMdClose } from 'react-icons/io'
 import modalImg from '../../assets/imageModalD.png'
 import { Button } from '../Button'
 
+import { removePatient } from '../../data/PatientsData'
+
 import { Container } from './styles'
 
-export function DeleteModal({ isOpen, toggleModal }) {
+export function DeleteModal({ isOpen, toggleModal, patientId, closeOptions }) {
+  function handleDeletePatient() {
+    removePatient(patientId)
+    toggleModal()
+    closeOptions(null)
+  }
   if (isOpen) {
     return (
       <Container>
@@ -28,6 +35,7 @@ export function DeleteModal({ isOpen, toggleModal }) {
               btnBorder
             />
             <Button
+              onClick={handleDeletePatient}
               title="Excluir"
               btnColor={({ theme }) => theme.COLORS.BACKGROUND2}
               btnBgColor={({ theme }) => theme.COLORS.RED}

@@ -112,6 +112,8 @@ export function Home() {
                     <Options
                       onClickItem={() => handleClick(index)}
                       isActiveOption={index === activeOption}
+                      patientId={patient.id}
+                      onCloseOptions={setActiveOption}
                     />
                   </td>
                 </tr>

@@ -1,5 +1,4 @@
-
-const patients = [
+let patients = [
   {
     id: crypto.randomUUID(),
     name: 'fulano',
@@ -16,7 +15,15 @@ export function addPatient(patient) {
     email: 'teste@gestaods.com.br',
     ...patient
   }
-  patients.push(patientData);
+  patients.push(patientData)
+}
+
+export function removePatient(patientId) {
+  let patientsInList = patients.filter(patient => patient.id != patientId)
+
+  console.log(patientId)
+
+  patients = patientsInList
 }
 
 export function usePatients() {
