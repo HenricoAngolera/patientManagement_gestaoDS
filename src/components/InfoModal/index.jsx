@@ -9,6 +9,8 @@ import { Select } from '../Select'
 
 import { addPatient, editPatient } from '../../data/PatientsData'
 
+import { api } from '../../services/api'
+
 import { Container } from './styles'
 
 export function InfoModal({
@@ -19,6 +21,8 @@ export function InfoModal({
   patientId
 }) {
   const [showContact, setShowContact] = useState(false)
+
+  const [viaApiAddress, setViaApiAddress] = useState({})
 
   const [name, setName] = useState(patientEdit ? patientEdit.name : '')
   const [surname, setSurname] = useState(patientEdit ? patientEdit.surname : '')
@@ -79,9 +83,19 @@ export function InfoModal({
     toggleModal()
   }
 
+  async function completeAddress() {
+    const { data } = await api.get(`/${cep}/json`)
+    const { bairro, complemento, localidade, logradouro, uf } = data
+    setViaApiAddress({ bairro, complemento, localidade, logradouro, uf })
+  }
+
   useEffect(() => {
     setShowContact(false)
   }, [])
+
+  useEffect(() => {
+    completeAddress()
+  }, [cep])
 
   if (isOpen) {
     return (
@@ -113,6 +127,7 @@ export function InfoModal({
                   labelTitle="CEP"
                   placeholder="Digite"
                   onChange={e => setCep(e.target.value)}
+                  onBlur={completeAddress}
                   defaultValue={patientEdit ? cep : ''}
                 />
                 <Input
@@ -121,6 +136,7 @@ export function InfoModal({
                   labelTitle="Cidade"
                   placeholder="Digite"
                   onChange={e => setCity(e.target.value)}
+                  value={viaApiAddress.localidade}
                   defaultValue={patientEdit ? city : ''}
                 />
                 <Input
@@ -129,6 +145,7 @@ export function InfoModal({
                   labelTitle="UF"
                   placeholder="Digite"
                   onChange={e => setUf(e.target.value)}
+                  value={viaApiAddress.uf}
                   defaultValue={patientEdit ? uf : ''}
                 />
                 <Input
@@ -137,6 +154,7 @@ export function InfoModal({
                   labelTitle="Endereço"
                   placeholder="Digite"
                   onChange={e => setAddress(e.target.value)}
+                  value={viaApiAddress.logradouro}
                   defaultValue={patientEdit ? address : ''}
                 />
                 <Input
@@ -153,6 +171,7 @@ export function InfoModal({
                   labelTitle="Bairro"
                   placeholder="Digite"
                   onChange={e => setNeighborhood(e.target.value)}
+                  value={viaApiAddress.bairro}
                   defaultValue={patientEdit ? neighborhood : ''}
                 />
                 <Input
@@ -161,6 +180,7 @@ export function InfoModal({
                   labelTitle="Complemento"
                   placeholder="Digite"
                   onChange={e => setComplement(e.target.value)}
+                  value={viaApiAddress.complemento}
                   defaultValue={patientEdit ? complement : ''}
                 />
               </div>
