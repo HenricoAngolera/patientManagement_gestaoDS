@@ -6,7 +6,12 @@ import { InfoModal } from '../InfoModal'
 
 import { Container, Select } from './styles'
 
-export function Options({ isActiveOption, onClickItem }) {
+export function Options({
+  isActiveOption,
+  onClickItem,
+  patientId,
+  onCloseOptions
+}) {
   const [modalDelete, setModalDelete] = useState(false)
   const [modalInfo, setModalInfo] = useState(false)
   return (
@@ -25,6 +30,7 @@ export function Options({ isActiveOption, onClickItem }) {
             Editar
           </a>
           <InfoModal
+            closeOptions={onCloseOptions}
             isOpen={modalInfo}
             toggleModal={() => setModalInfo(!modalInfo)}
           />
@@ -37,8 +43,10 @@ export function Options({ isActiveOption, onClickItem }) {
             Excluir
           </a>
           <DeleteModal
+            closeOptions={onCloseOptions}
             isOpen={modalDelete}
             toggleModal={() => setModalDelete(!modalDelete)}
+            patientId={patientId}
           ></DeleteModal>
         </Select>
       )}
