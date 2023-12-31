@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { IoMdClose } from 'react-icons/io'
 
 import userImg from '../../assets/img_placeh.png'
@@ -7,30 +7,43 @@ import { Input } from '../Input'
 import { Button } from '../Button'
 import { Select } from '../Select'
 
-import { addPatient } from '../../data/PatientsData'
+import { addPatient, findPatient } from '../../data/PatientsData'
 
 import { Container } from './styles'
 
-export function InfoModal({ isOpen, toggleModal }) {
+export function InfoModal({ isOpen, toggleModal, patientEdit }) {
+  console.log(patientEdit)
   const [showContact, setShowContact] = useState(false)
 
-  const [name, setName] = useState('')
-  const [surname, setSurname] = useState('')
-  const [nationality, setNationality] = useState('')
-  const [birthDay, setBirthDay] = useState('')
-  const [cpf, setCpf] = useState('')
-  const [rg, setRg] = useState('')
-  const [gender, setGender] = useState('')
-  const [maritalStatus, setMaritalStatus] = useState('')
-  const [addObs, setAddObs] = useState('')
+  const [name, setName] = useState(patientEdit ? patientEdit.name : '')
+  const [surname, setSurname] = useState(patientEdit ? patientEdit.surname : '')
+  const [nationality, setNationality] = useState(
+    patientEdit ? patientEdit.nationality : ''
+  )
+  const [birthDay, setBirthDay] = useState(
+    patientEdit ? patientEdit.birthDay : ''
+  )
+  const [cpf, setCpf] = useState(patientEdit ? patientEdit.cpf : '')
+  const [rg, setRg] = useState(patientEdit ? patientEdit.rg : '')
+  const [gender, setGender] = useState(patientEdit ? patientEdit.gender : '')
+  const [maritalStatus, setMaritalStatus] = useState(
+    patientEdit ? patientEdit.maritalStatus : ''
+  )
+  const [addObs, setAddObs] = useState(patientEdit ? patientEdit.addObs : '')
 
-  const [cep, setCep] = useState('')
-  const [city, setCity] = useState('')
-  const [uf, setUf] = useState('')
-  const [address, setAddress] = useState('')
-  const [houseNumber, setHouseNumber] = useState('')
-  const [neighborhood, setNeighborhood] = useState('')
-  const [complement, setComplement] = useState('')
+  const [cep, setCep] = useState(patientEdit ? patientEdit.cep : '')
+  const [city, setCity] = useState(patientEdit ? patientEdit.city : '')
+  const [uf, setUf] = useState(patientEdit ? patientEdit.uf : '')
+  const [address, setAddress] = useState(patientEdit ? patientEdit.address : '')
+  const [houseNumber, setHouseNumber] = useState(
+    patientEdit ? patientEdit.houseNumber : ''
+  )
+  const [neighborhood, setNeighborhood] = useState(
+    patientEdit ? patientEdit.neighborhood : ''
+  )
+  const [complement, setComplement] = useState(
+    patientEdit ? patientEdit.complement : ''
+  )
 
   const patient = {
     name,
@@ -55,6 +68,10 @@ export function InfoModal({ isOpen, toggleModal }) {
     addPatient(patient)
     toggleModal()
   }
+
+  useEffect(() => {
+    setShowContact(false)
+  }, [])
 
   if (isOpen) {
     return (
@@ -86,6 +103,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                   labelTitle="CEP"
                   placeholder="Digite"
                   onChange={e => setCep(e.target.value)}
+                  defaultValue={patientEdit ? cep : ''}
                 />
                 <Input
                   type="text"
@@ -93,6 +111,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                   labelTitle="Cidade"
                   placeholder="Digite"
                   onChange={e => setCity(e.target.value)}
+                  defaultValue={patientEdit ? city : ''}
                 />
                 <Input
                   type="text"
@@ -100,6 +119,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                   labelTitle="UF"
                   placeholder="Digite"
                   onChange={e => setUf(e.target.value)}
+                  defaultValue={patientEdit ? uf : ''}
                 />
                 <Input
                   type="text"
@@ -107,6 +127,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                   labelTitle="Endereço"
                   placeholder="Digite"
                   onChange={e => setAddress(e.target.value)}
+                  defaultValue={patientEdit ? address : ''}
                 />
                 <Input
                   type="number"
@@ -114,6 +135,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                   labelTitle="Número"
                   placeholder="Digite"
                   onChange={e => setHouseNumber(e.target.value)}
+                  defaultValue={patientEdit ? houseNumber : ''}
                 />
                 <Input
                   type="text"
@@ -121,6 +143,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                   labelTitle="Bairro"
                   placeholder="Digite"
                   onChange={e => setNeighborhood(e.target.value)}
+                  defaultValue={patientEdit ? neighborhood : ''}
                 />
                 <Input
                   type="text"
@@ -128,6 +151,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                   labelTitle="Complemento"
                   placeholder="Digite"
                   onChange={e => setComplement(e.target.value)}
+                  defaultValue={patientEdit ? complement : ''}
                 />
               </div>
               <div className="button-modal">
@@ -150,6 +174,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                     labelTitle="Paciente"
                     placeholder="Digite"
                     onChange={e => setName(e.target.value)}
+                    defaultValue={patientEdit ? name : ''}
                   />
                   <Input
                     type="text"
@@ -157,6 +182,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                     labelTitle="Apelido"
                     placeholder="Digite"
                     onChange={e => setSurname(e.target.value)}
+                    defaultValue={patientEdit ? surname : ''}
                   />
                   <Input
                     type="text"
@@ -164,12 +190,14 @@ export function InfoModal({ isOpen, toggleModal }) {
                     labelTitle="Nacionalidade"
                     placeholder="Digite"
                     onChange={e => setNationality(e.target.value)}
+                    defaultValue={patientEdit ? nationality : ''}
                   />
                   <Input
                     type="date"
                     label
                     labelTitle="Nascimento"
                     onChange={e => setBirthDay(e.target.value)}
+                    defaultValue={patientEdit ? birthDay : ''}
                   />
                   <Input
                     type="number"
@@ -177,6 +205,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                     labelTitle="CPF"
                     placeholder="Digite"
                     onChange={e => setCpf(e.target.value)}
+                    defaultValue={patientEdit ? cpf : ''}
                   />
                   <Input
                     type="number"
@@ -184,11 +213,13 @@ export function InfoModal({ isOpen, toggleModal }) {
                     labelTitle="RG"
                     placeholder="Digite"
                     onChange={e => setRg(e.target.value)}
+                    defaultValue={patientEdit ? rg : ''}
                   />
                   <Select
                     onChange={e => setGender(e.target.value)}
                     label
                     labelTitle="Genero"
+                    defaultValue={patientEdit ? gender : ''}
                   >
                     <option value="">Sem Filtro</option>
                     <option value="mas">Masculino</option>
@@ -200,6 +231,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                     onChange={e => setMaritalStatus(e.target.value)}
                     label
                     labelTitle="Estado Civil"
+                    defaultValue={patientEdit ? maritalStatus : ''}
                   >
                     <option value="">Sem Filtro</option>
                     <option value="sin">Solteiro(a)</option>
@@ -213,6 +245,7 @@ export function InfoModal({ isOpen, toggleModal }) {
                   <textarea
                     onChange={e => setAddObs(e.target.value)}
                     id="obs"
+                    defaultValue={patientEdit ? addObs : ''}
                   ></textarea>
                 </div>
               </div>
